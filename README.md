@@ -2,24 +2,25 @@
 第一階段研究專案(week8)
 
 ## Task1 - HTML <script> Attributes -- <br> There are 2 attributes, defer and async , that we can use in <script> tag to change the script loading and executing behavior.
-Q1-1: What happens if we add a defer attribute to a <script>tag?
+Q1-1: What happens if we add a defer attribute to a <script>tag? <br>
 A1-1:
 
-Q1-2: What happens if we add a async attribute to a <script>tag?
+Q1-2: What happens if we add a async attribute to a <script>tag? <br>
 A1-2:
 
-Q1-3: When to use these 2 attributes? Could you give us code examples to illustrate the use cases for these 2 attributes?
+Q1-3: When to use these 2 attributes? Could you give us code examples to illustrate the use cases for these 2 attributes? <br>
 A1-3:
 
 ## Task2 - CSS Selector Naming -- OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code.
-Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines.
+Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
 A2-1:
 
-Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks.
+Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2:
 
-## Task3- Fetch and CORS --  Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function.
-Q3-1: What is CORS?
+## Task3- Fetch and CORS --  
+Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function.
+Q3-1: What is CORS? <br>
 A3-1: 
 
 Q3-2: Can we use the fetch function in our localhost page, to send a request to https://www.google.com/ and get a response?
