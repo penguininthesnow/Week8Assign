@@ -1,7 +1,7 @@
 # Week8Assign
 第一階段研究專案(week8)
 
-## Task1 - HTML <script> Attributes -- There are 2 attributes, defer and async , that we can use in <script> tag to change the script loading and executing behavior.
+## Task1 - HTML <script> Attributes -- <br> There are 2 attributes, defer and async , that we can use in <script> tag to change the script loading and executing behavior.
 Q1-1: What happens if we add a defer attribute to a <script>tag?
 A1-1:
 
