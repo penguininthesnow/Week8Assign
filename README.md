@@ -77,7 +77,7 @@ Modifier: 用於修改塊或元素的外觀及狀態，通常用兩個破折號�
 .header__element{} // 區塊+區塊裡的元件
 .header__element--modifier{} // 區塊+區塊裡的元件+狀態
 ```
-<br>而BEM好處就是能一眼看出來這個class是什麼用途的，而反之缺點就是一個class他的命名可能因此變得很長
+<br>而BEM好處就是能一眼看出來這個class是什麼用途的，而反之缺點就是一個class他的命名可能因此變得很長 <br>
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2: Maybe is 'BEM'.，因為在瀏覽HTML CODE中這麼多行程式碼下，能夠透過觀察class，就能立馬了解CSS架構，這樣就不用再回去看CSS CODE裡，哪一個Layout、Module等，也能讓團隊都有一個統一的命名規則，讓彼此在看時都能一目了然。
 <br>
@@ -85,7 +85,11 @@ A2-2: Maybe is 'BEM'.，因為在瀏覽HTML CODE中這麼多行程式碼下，�
 ## Task3- Fetch and CORS 
 Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function.
 Q3-1: What is CORS? <br>
-A3-1: 
+A3-1: 中文叫做"來源資源共享"，此機制支持瀏覽器和伺服器之間的安全跨來源請求和數據傳輸，是一種基於HTTP標頭的機制，簡單來說就是當我們訪問一個網站，而這個網站的(圖片、資料或腳本)不存在於同一個伺服器上，這時瀏覽器就會幫我們建立一個HTTP的跨域請求(cross-origin HTTP request)，例如 在A網站要放入一張來源在B網站的圖片，如果沒有CORS，瀏覽器本身的同源政策會阻止這個跨來源的請求發生，用以保護使用者的資訊安全。<br>
+(<strong>同源政策:</strong>確保一網站的資源不能隨便干涉或使用來自另一個網站的資料或功能，以保護你的資料不被其他不相干的網站訪問或濫用，而如果沒有這層防護，很可能連個資都會被竊取。)
+```
+<img src="http://domain-b.com/image.jpg">
+```
 
 Q3-2: Can we use the fetch function in our localhost page, to send a request to https://www.google.com/ and get a response? <br>
 A3-2:
