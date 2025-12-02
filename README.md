@@ -64,9 +64,9 @@ footer{
 優點是感覺code好像變得很乾淨，缺點是HTML上的class數量可能會變很多個(如果又再加上很多utilities) <br>
 <strong>SMACSS:</strong>全名為「Scalable and Modular Architecture for CSS」，一即可擴展與模組化的設計模式。他將CSS分為Base、Layout、Module、State、Theme五個層級。<br>
 Base: 全域設定，用來定義HTML的基本樣式，例如h1, h2, a... <br>
-Layout: 網頁版面架構，例如.container
-Module: 代表獨立、可重複的元件，例如 .btn, .nav
-State: 元素狀態，例如 .active, .disabled
+Layout: 網頁版面架構，例如.container <br>
+Module: 代表獨立、可重複的元件，例如 .btn, .nav <br>
+State: 元素狀態，例如 .active, .disabled <br>
 Theme: 元素的顏色、字體等主題，例如 .theme-dark, .theme-light <br>
 <strong>BEM:</strong>
 <br>
