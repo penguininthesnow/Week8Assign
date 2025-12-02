@@ -81,7 +81,10 @@ Modifier: 用於修改塊或元素的外觀及狀態，通常用兩個破折號�
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2: Maybe is 'BEM'.，因為在瀏覽HTML CODE中這麼多行程式碼下，能夠透過觀察class，就能立馬了解CSS架構，這樣就不用再回去看CSS CODE裡，哪一個Layout、Module等，也能讓團隊都有一個統一的命名規則，讓彼此在看時都能一目了然。
 <br>
+from week1 tasks
+```
 
+```
 ## Task3- Fetch and CORS 
 Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function. <br>
 Q3-1: What is CORS? <br>
@@ -124,13 +127,49 @@ Access-Control-Request-Origin:*
 Access-Control-Request-Origin: https://mini.com
 ```
 Q3-2: Can we use the fetch function in our localhost page, to send a request to https://www.google.com/ and get a response? <br>
-A3-2:
+A3-2: No, because【Access to fetch at 'https://www.google.com/' from origin 'http://localhost:8000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.】
+ if we fetch it will have this above message.
 
 Q3-3: Can we use the fetch function in our localhost page, to send a request to https://cwpeng.github.io/test/assignment-3-1 and get a response? Compared to the previous case, what’s the difference? <br>
-A3-3:
+A3-3: code
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch google test</title>
+</head>
+<body>
+<script>
+    fetch("https://cwpeng.github.io/test/assignment-3-1")
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .catch(err => console.error("Error:", err));
+</script>
+    
+</body>
+</html>
+```
+在Terminal先啟動
+```
+cd C:\Users\USER\Desktop\penguininthesnow\wehelp\week8\Task3
+//接著啟動伺服器
+python -m http.server 8000
+```
+google.com不會回傳Access Control Allow Origin，而github.com會回傳Access Control Allow Origin: *
 
 Q3-4: How to share APIs we developed to other domains, just like what we experienced in step 3. Could you give us an example? <br>
-A3-4:
+A3-4: 在FastAPI設定CORS middleware:
+```
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=["*"], #或設定特定網址
+  allow_methods=["*"],
+  allow_headers=["*"]
+)
+```
 
 ## Task4 - Connection Pool 
 The standard procedure to work with databases is: connect, execute SQL statements, and finally close the connection. Connection Pool is a programming technique to make the connection between back-end system and database more stable, and increase overall throughput.
