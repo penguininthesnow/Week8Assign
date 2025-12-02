@@ -65,11 +65,19 @@ footer{
 <strong>SMACSS:</strong>全名為「Scalable and Modular Architecture for CSS」，一即可擴展與模組化的設計模式。他將CSS分為Base、Layout、Module、State、Theme五個層級。<br>
   Base: 全域設定，用來定義HTML的基本樣式，例如h1, h2, a... <br>
   Layout: 網頁版面架構，例如.container <br>
-  Module: 代表獨立、可重複的元件，例如 .btn, .nav <br>
-  State: 元素狀態，例如 .active, .disabled <br>
-  Theme: 元素的顏色、字體等主題，例如 .theme-dark, .theme-light <br>
-<strong>BEM:</strong>
-<br>
+  Module: 代表獨立、可重複的元件，也可以說是模組規範，在整個網頁的區塊視為一個個的模組，例如 .btn, .nav <br>
+  State: 元素狀態，網頁中有不同的狀態顏色或行為改變所呈現的結果，例如 .active, .disabled <br>
+  Theme: 元素的顏色、字體等主題，指網頁外觀的顏色、圖片，例如 .theme-dark, .theme-light <br>
+<strong>BEM:</strong>全名是Block Element Modiifier，單字分別拆開來就是
+Block: 塊是一個獨立的元件，以小寫字母命名，例如 .header, .menu <br>
+Element: 元素是塊的一部分，他們利用兩個下底線「　＿＿　」連接起來，例如　.header_text, .menu_item <br>
+Modifier: 用於修改塊或元素的外觀及狀態，通常用兩個破折號「  - - 」連起來，例如 header--dark, menu__item--active
+```
+.header{   } // 區塊
+.header__element{} // 區塊+區塊裡的元件
+.header__element--modifier{} // 區塊+區塊裡的元件+狀態
+```
+<br>而BEM好處就是能一眼看出來這個class是什麼用途的，而反之缺點就是一個class他的命名可能因此變得很長
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2:
 <br>
