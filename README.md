@@ -83,14 +83,46 @@ A2-2: Maybe is 'BEM'.，因為在瀏覽HTML CODE中這麼多行程式碼下，�
 <br>
 
 ## Task3- Fetch and CORS 
-Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function.
+Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function. <br>
 Q3-1: What is CORS? <br>
 A3-1: 中文叫做"來源資源共享"，此機制支持瀏覽器和伺服器之間的安全跨來源請求和數據傳輸，是一種基於HTTP標頭的機制，簡單來說就是當我們訪問一個網站，而這個網站的(圖片、資料或腳本)不存在於同一個伺服器上，這時瀏覽器就會幫我們建立一個HTTP的跨域請求(cross-origin HTTP request)，例如 在A網站要放入一張來源在B網站的圖片，如果沒有CORS，瀏覽器本身的同源政策會阻止這個跨來源的請求發生，用以保護使用者的資訊安全。<br>
 (<strong>同源政策:</strong>確保一網站的資源不能隨便干涉或使用來自另一個網站的資料或功能，以保護你的資料不被其他不相干的網站訪問或濫用，而如果沒有這層防護，很可能連個資都會被竊取。)
 ```
 <img src="http://domain-b.com/image.jpg">
 ```
-
+同源指的是:scheme、domain、port一樣，則會被視為同源，舉例 假如有一個網站是https://micky.com
+```
+http://micky.com // 不同源，scheme不同
+https://hey.micky.com  //不同源，domain不同
+https://micky.com:55  // 不同源，port不同
+https://micky.com/cash  // 同源
+```
+有關CORS的設定方式:
+分成「簡單請求(simple requests)」以及「預檢請求(preflighted requests)」，除非包含基本請求的條件，如fetch中的(GET/POST/HEAD)或是設定header、Content type等這類以外的，都會是預檢請求;當我們用fetch的(PUT/DELETE/PATCH)
+或XMLHttpRequest來存取資料時，瀏覽器都會先發送一個preflighted requests，這個請求目的是確認伺服器端是否有正確設定允許跨網域的HTTP標頭，當這個檢查通過後，真正的請求才會被發送
+```
+fetch('https://micky.com/img/',{
+  method: 'POST',
+  headers:{
+    'Content-Type': 'application/json',
+  }
+})
+```
+而發出的請求可能會長這樣:
+```
+OPTIONS /img/
+Host: micky.com
+Origin: https://myweb.com/
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type 
+```
+如果遇到CORS有問題時，跨域設定常見就是Access-Control-Request-Origin
+```
+// 如果要允許所有跨域來源的請求，可以用星號
+Access-Control-Request-Origin:*
+// 如果要允許特定來源的跨域請求，就直接放入該來源
+Access-Control-Request-Origin: https://mini.com
+```
 Q3-2: Can we use the fetch function in our localhost page, to send a request to https://www.google.com/ and get a response? <br>
 A3-2:
 
