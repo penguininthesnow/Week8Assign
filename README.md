@@ -79,7 +79,7 @@ Modifier: 用於修改塊或元素的外觀及狀態，通常用兩個破折號�
 ```
 <br>而BEM好處就是能一眼看出來這個class是什麼用途的，而反之缺點就是一個class他的命名可能因此變得很長
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
-A2-2:
+A2-2: Maybe is 'BEM'.，因為在瀏覽HTML CODE中這麼多行程式碼下，能夠透過觀察class，就能立馬了解CSS架構，這樣就不用再回去看CSS CODE裡，哪一個Layout、Module等，也能讓團隊都有一個統一的命名規則，讓彼此在看時都能一目了然。
 <br>
 
 ## Task3- Fetch and CORS 
