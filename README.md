@@ -18,9 +18,8 @@ A1-3-2: 用week7做示範
 ## Task2 - CSS Selector Naming 
 OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code.
 Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
-A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:<br>
-原本寫法是<br>
-```
+A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:獨立出結構和樣式後，我們就可以重複套用在其他按鈕上，不需要在其他不同按鈕上又寫不一樣的code
+```/* 原本寫法是 */
 .btn-login{
   padding:20px;
   border-radius:5px solid;
@@ -34,11 +33,36 @@ A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概�
 /*獨立出樣式*/
 .btn-primary{
   background-color:blue;
+}```
+2.容器與內容分離:就是在沒一個容器裡抽出一樣得樣式，然後統一寫在一個css裡面
+```/* 原本寫法: */
+header{
+  max-width: 1500px;
+  margin:20px 40px;
+  background-color: #aaa;
+  ...
 }
-2.容器與內容分離
+footer{
+  max-width: 1500px;
+  margin:20px 40px;
+  background-color: #bbb;
+}
+/*以「容器」獨立出共用部分*/
+.container{
+  max-width: 1500px;
+  margin:20px 40px;
+}
+/*不一樣的樣式再分開寫*/
+header{
+  background-color: #bbb;
+}
+footer{
+  background-color: #ccc;
+}
+```
+優點是感覺code好像變得很乾淨，缺點是HTML上的class數量可能會變很多個(如果又再加上很多utilities) <br>
 <strong>SMACSS:</strong>
 <strong>BEM:</strong>
-```
 <br>
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2:
