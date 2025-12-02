@@ -13,6 +13,7 @@ A1-2: 全名-asynchrnous，意即非同步，換句話說解析HTML與腳本載�
 Q1-3: When to use these 2 attributes? Could you give us code examples to illustrate the use cases for these 2 attributes? <br>
 A1-3: 先講歷史沿革部分，在以前defer、async還沒出來的年代，當瀏覽器在解析HTML時，只要遇到<script>標籤就會走以下程序，1.停止解析 2.對src發起請求 3.等待 4.執行回應腳本或是請求失敗Exception 5.繼續向下解析，也就是說當遇到<script>標籤時，就會先停下手邊建構DOM的工作，開始載入<script>腳本資源，並執行下載好的腳本，直到下載完並執行完畢，才會繼續DOM的建構。
 而這樣就會有兩難局面，就是說如果今天我們把 <script> 標籤順序擺比較上面，則可能導致如果腳本較肥大，要載入比較久的時間，進而導致畫面比較晚才被渲染出來，這也是為什麼許多人傾向把<script>標籤放在最下面，然而如果這麼做則會導致當畫面渲染完之後，還要等script裡的內容載入與執行完，這會讓畫面是呈現渲染出來得樣子，但是沒辦法有功能，因此有了async與defer的誕生。這兩個屬性都是在跟瀏覽器說，不用等腳本載入，繼續建構DOM，這樣不只讓兩邊同步進行，也能讓使用者使用體驗更好。
+A1-3-2: 用week7做示範 
 
 ## Task2 - CSS Selector Naming 
 OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code.
