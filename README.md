@@ -33,7 +33,8 @@ A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概�
 /*獨立出樣式*/
 .btn-primary{
   background-color:blue;
-}```
+}
+```
 2.容器與內容分離:就是在沒一個容器裡抽出一樣得樣式，然後統一寫在一個css裡面
 ```/* 原本寫法: */
 header{
