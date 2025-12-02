@@ -18,11 +18,13 @@ A1-3-2: 用week7做示範
 ## Task2 - CSS Selector Naming 
 OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code.
 Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
-A2-1:
+A2-1: <strong>OOCSS</strong>
+
 <br>
 Q2-2: Tell us which naming guideline is your favorite, and give an example to demonstrate the main concept of that guideline. For example, you can demo how to apply the OOCSS naming guideline to the CSS code in our week 1 tasks. <br>
 A2-2:
 <br>
+
 ## Task3- Fetch and CORS 
 Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function.
 Q3-1: What is CORS? <br>
