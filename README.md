@@ -172,9 +172,11 @@ app.add_middleware(
 ```
 
 ## Task4 - Connection Pool 
-The standard procedure to work with databases is: connect, execute SQL statements, and finally close the connection. Connection Pool is a programming technique to make the connection between back-end system and database more stable, and increase overall throughput.
+The standard procedure to work with databases is: connect, execute SQL statements, and finally close the connection. Connection Pool is a programming technique to make the connection between back-end system and database more stable, and increase overall throughput.<br>
 Q3-1: What is Connection Pool? Why do we want to use Connection Pool? <br>
-A3-1:
+A3-1:connection pool 又叫做連接池，是一個有關於後端與資料庫之間的系統，如同上面所說如果今天我們可以直接從後端跟資料庫拿取資料，而不需要每次拿取又要跑一次連線，是不是就可以提升效能了呢?直白來說我覺得他就像一個快速通關券讓我們每次進入資料庫拿東西時，不用再排隊驗票...等等繁雜瑣碎流程。一個簡單的查詢，這個SQL執行可能只需要0.1秒，但卻花了2秒在做建立連線跟關閉，假如有大量的建立連線跟關閉同時出現，不只對資料庫有很大的衝擊，也會拖垮系統效能。<br>
+機制有點像是:程式一執行就會建立好固定的連線數量，儲存在pool中，在程式需要連線的時候，getConnection()其實是到pool裡面去拿，不需要再花時間跟DB建立連線。關閉連線的時候，close()其實是把連線放回pool，以便於後續能重複使用。另外一個好處是connection pool還會自動檢查連線狀態，確保能keep設定的最大連線數.
+
 
 Q3-2: How to create a Connection Pool by the official mysql-connector-python package? <br>
 A3-2:
