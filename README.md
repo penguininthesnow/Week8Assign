@@ -18,7 +18,8 @@ A1-3-2: 用week7做示範
 ## Task2 - CSS Selector Naming 
 OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code. <br>
 Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
-A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:獨立出結構和樣式後，我們就可以重複套用在其他按鈕上，不需要在其他不同按鈕上又寫不一樣的code
+A2-1: <br>
+- <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:獨立出結構和樣式後，我們就可以重複套用在其他按鈕上，不需要在其他不同按鈕上又寫不一樣的code
 ```/* 原本寫法是 */
 .btn-login{
   padding:20px;
@@ -62,13 +63,13 @@ footer{
 }
 ```
 優點是感覺code好像變得很乾淨，缺點是HTML上的class數量可能會變很多個(如果又再加上很多utilities) <br>
-<strong>SMACSS:</strong>全名為「Scalable and Modular Architecture for CSS」，一即可擴展與模組化的設計模式。他將CSS分為Base、Layout、Module、State、Theme五個層級。<br>
+- <strong>SMACSS:</strong>全名為「Scalable and Modular Architecture for CSS」，一即可擴展與模組化的設計模式。他將CSS分為Base、Layout、Module、State、Theme五個層級。<br>
   Base: 全域設定，用來定義HTML的基本樣式，例如h1, h2, a... <br>
   Layout: 網頁版面架構，例如.container <br>
   Module: 代表獨立、可重複的元件，也可以說是模組規範，在整個網頁的區塊視為一個個的模組，例如 .btn, .nav <br>
   State: 元素狀態，網頁中有不同的狀態顏色或行為改變所呈現的結果，例如 .active, .disabled <br>
   Theme: 元素的顏色、字體等主題，指網頁外觀的顏色、圖片，例如 .theme-dark, .theme-light <br>
-<strong>BEM:</strong>全名是Block Element Modiifier，單字分別拆開來就是
+- <strong>BEM:</strong>全名是Block Element Modiifier，單字分別拆開來就是
 Block: 塊是一個獨立的元件，以小寫字母命名，例如 .header, .menu <br>
 Element: 元素是塊的一部分，他們利用兩個下底線「　＿＿　」連接起來，例如　.header_text, .menu_item <br>
 Modifier: 用於修改塊或元素的外觀及狀態，通常用兩個破折號「  - - 」連起來，例如 header--dark, menu__item--active
