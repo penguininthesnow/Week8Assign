@@ -2,7 +2,8 @@
 第一階段研究專案(week8)
 
 ## Task1 - HTML <script> Attributes  
-There are 2 attributes, defer and async , that we can use in <script> tag to change the script loading and executing behavior.
+There are 2 attributes, defer and async , that we can use in <script> tag to change the script loading and executing behavior.<br>
+
 Q1-1: What happens if we add a "defer" attribute to a <script>tag? <br>
 A1-1: Deferred(延遲的)，defer會告訴瀏覽器，不用等腳本下載與執行，可以繼續完成HTML的解析和DOM的建構; 也就是說在建構的同時，會在背景中載入腳本，因此他不會擋住畫面的渲染。倘若今天腳本在HTML解析完成前就先下載好，那他也會等到HTML解析完成後才會執行，也就是說如果有腳本需要等HTML解析完，DOM完整建立才能載入，那麼會需要選defer。 另一個情境是: 如果今天同時帶有多個defer屬性，瀏覽器會同步下載，只是會依照在HTML中的順序執行，確保在執行時是我們要的順序，有時是某一腳本A依賴某一腳本B時，要確保A是在B之前執行，這實業會選用defer。
 
@@ -17,6 +18,7 @@ A1-3-2: 用week7做示範
 
 ## Task2 - CSS Selector Naming 
 OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code. <br>
+
 Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
 A2-1: <br>
 - <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:獨立出結構和樣式後，我們就可以重複套用在其他按鈕上，不需要在其他不同按鈕上又寫不一樣的code
@@ -88,6 +90,7 @@ from week1 tasks
 ```
 ## Task3- Fetch and CORS 
 Using built-in JavaScript fetch function, we can send HTTP requests to the back-end and get HTTP responses without refreshing or redirecting the page. Cross Origin Resource Sharing (CORS) concept plays a critical role if we want to send a request to a different domain with the fetch function. <br>
+
 Q3-1: What is CORS? <br>
 A3-1: 中文叫做"來源資源共享"，此機制支持瀏覽器和伺服器之間的安全跨來源請求和數據傳輸，是一種基於HTTP標頭的機制，簡單來說就是當我們訪問一個網站，而這個網站的(圖片、資料或腳本)不存在於同一個伺服器上，這時瀏覽器就會幫我們建立一個HTTP的跨域請求(cross-origin HTTP request)，例如 在A網站要放入一張來源在B網站的圖片，如果沒有CORS，瀏覽器本身的同源政策會阻止這個跨來源的請求發生，用以保護使用者的資訊安全。<br>
 (<strong>同源政策:</strong>確保一網站的資源不能隨便干涉或使用來自另一個網站的資料或功能，以保護你的資料不被其他不相干的網站訪問或濫用，而如果沒有這層防護，很可能連個資都會被竊取。)
@@ -186,7 +189,8 @@ Q3-3: If we want to make database operations, we get a connection from Connectio
 A3-3:
 
 ## Task5 - Cross-Site Scripting(XSS)
-Cross-Site Scripting (XSS) is one of the most common attack methods. Try to study the basic concept, replicate the attack steps, and tell us how to prevent this kind of attack from the developer’s view.
+Cross-Site Scripting (XSS) is one of the most common attack methods. Try to study the basic concept, replicate the attack steps, and tell us how to prevent this kind of attack from the developer’s view.<br>
+
 Q5-1: What is XSS? <br>
 A5-1:中文叫作跨網站指令碼，是一種網路攻擊，攻擊者通常會將程式碼(常見的如:Javascript)放入網站中。當使用者瀏覽網站時，攻擊者可藉由他們之前導入的惡意程式碼去執行，並竊取使用者的資訊(如Cookie、權杖等)，也可能直接假冒使用者身份，將網站內容修改使得使用者被導向到惡意網站。<br>
 *常見手法有3種(危害等級:儲存型>反射型>DOM型)
