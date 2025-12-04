@@ -16,7 +16,7 @@ A1-3: 先講歷史沿革部分，在以前defer、async還沒出來的年代，�
 A1-3-2: 用week7做示範 
 
 ## Task2 - CSS Selector Naming 
-OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code.
+OOCSS, SMACSS, and BEM are 3 common naming guidelines for CSS Selector. These guidelines help us write more readable CSS code. <br>
 Q2-1: Introduce the concepts of OOCSS, SMACSS, and BEM naming guidelines. <br>
 A2-1: <strong>OOCSS:</strong>全名為Object Oriented CSS，類似積木的概念，我們要將CSS寫成一個個可以獨立拆開的積木(耦合:兩個模組間的相依性，業就是要寫出低耦合的CSS，方便未來的擴展彈性)，而其中最主要的代表框架就是Bootstrap，其中主要概念就是1.結構與樣式分離:獨立出結構和樣式後，我們就可以重複套用在其他按鈕上，不需要在其他不同按鈕上又寫不一樣的code
 ```/* 原本寫法是 */
