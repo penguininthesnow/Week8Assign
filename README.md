@@ -190,8 +190,17 @@ Q5-1: What is XSS? <br>
 A5-1:中文叫作跨網站指令碼，是一種網路攻擊，攻擊者通常會將程式碼(常見的如:Javascript)放入網站中。當使用者瀏覽網站時，攻擊者可藉由他們之前導入的惡意程式碼去執行，並竊取使用者的資訊(如Cookie、權杖等)，也可能直接假冒使用者身份，將網站內容修改使得使用者被導向到惡意網站。<br>
 *常見手法有3種(危害等級:儲存型>反射型>DOM型)
 - Reflected反射型:
-  如果今天後端程式需要從GET參數取得資料，並講內容呈現在前端，那麼攻擊者就會直接在GET參數(例如:URL中)裡直接注入惡意的Javascript，直接讓網頁藉由GET參數傳遞。<br>
-- stored儲存型:
+  如果今天後端程式需要從GET參數取得資料，並講內容呈現在前端，那麼攻擊者就會直接在GET參數(例如:URL中)裡直接注入惡意的Javascript，直接讓網頁藉由GET參數傳遞。必須誘導使用者點到假連結才有用
+  ```
+  // 網頁程式
+  if(isset($_GET['status']) && !empty($_GET['status'])) {
+    echo $_GET['status'];
+  }
+  // 網址列
+  http://www.example.com?status='新增成功'
+  http://www.example.com?status=<script>alert(1)</script> // 執行惡意程式
+  ```
+- Stored儲存型:
   若後端程式會儲存前端的輸入，在日後瀏覽時顯示，而攻擊者就直接輸入Javascript，使得其他使用者瀏覽時遭受攻擊。也是殺傷力最大的因為在網址列既看不出甚麼問題，而且因為使用者可以留任何訊息存在資料庫裡，所以每個使用者打開都會看到被修改的內容。例如:將具有惡意的script透過留言版功能，儲存於database中，當下一次受害者開啟此頁面，注入惡意script的留言就會執行。
 ```
 <input type="text" placeholder="輸入內容">
@@ -202,12 +211,12 @@ A5-1:中文叫作跨網站指令碼，是一種網路攻擊，攻擊者通常會
 ```
 
 - DOM型:
-  可以發現前兩個都是針對後端攻擊，然而網頁前端Javascript也可能動態改變頁面上的內容。例如:在input的地方輸入惡意的DOM語法，因為是前端的語法所以只能發生在前端，因此需要攻擊者直接在本人的電腦輸入惡意程式，由此可見此類型通常搭配反射型與儲存型製造出內容，讓Javascript動態產生DOM才能達成。<br>
-  *以下為幾個較常見的XSS's script
+  可以發現前兩個都是針對後端攻擊，然而網頁前端Javascript也可能動態改變頁面上的內容。例如:在input的地方輸入惡意的DOM語法，因為是前端的語法所以只能發生在前端，因此需要攻擊者直接在本人的電腦輸入惡意程式，由此可見此類型通常搭配反射型與儲存型製造出內容，讓Javascript動態產生DOM才能達成。一般常用在.innerHTML(), .html() <br>
+*以下為幾個較常見的XSS's script
 ```
 <script>alert('666')</script>
 <svg/onload=alert(1)>
-<img src=# onerror=aleret(1)>
+<img src="" onerror="sendRequest('document.cookie')")> // src會讀取失敗，並執行onerror
 <a href="javascript:alert(1)">g</a>
 <input type="text" value="g" onmouseover="alert(1)"/>
 <iframe src="javascript:alert(1)"></iframe>
